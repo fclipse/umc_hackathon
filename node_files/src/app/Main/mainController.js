@@ -76,3 +76,21 @@ exports.postRoom = async function(req, res){
     const createRoomResponse = await mainService.createRoom(createRoomParams);
     return res.send(createRoomResponse);
 }
+/**
+ * API No. 1.4
+ * API Name: 방 설명 변경 API
+ * [Post] /main/patch/:roomIdx
+ */
+ exports.patchRoomContent = async function(req, res){
+    const {content} = req.body;
+    const roomIdx = req.params.roomIdx;
+    // validation
+    if(!roomIdx){
+        return res.send(errResponse(baseResponse.ROOM_ROOMIDX_EMPTY));
+    }
+    if(roomIdx <= 0){
+        return res.send(errResponse(baseResponse.ROOM_ROOMIDX_LENGTH));
+    }
+    const editRoomContentResponse = await mainService.editRoomContent(roomIdx, content);
+    return res.send(editRoomContentResponse);
+}

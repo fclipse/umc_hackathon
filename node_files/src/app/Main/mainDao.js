@@ -85,10 +85,22 @@ async function insertRoom(connection, createRoomParams){
     // console.log(insertRoomRows.insertId);
     return insertRoomRows.insertId;
 }
+
+async function updateRoomContent(connection, roomIdx, content){
+    const updateRoomContentQuery = `
+    UPDATE Room 
+    SET content = ? 
+    WHERE roomIdx = ?;
+    `;
+    const updateRoomContentRow = await connection.query(updateRoomContentQuery, [content, roomIdx]);
+    return updateRoomContentRow;
+}
+
 module.exports={
     selectFeed,
     selectRoom,
     selectHostIdx,
     selectRoomImage,
     insertRoom,
+    updateRoomContent,
 };

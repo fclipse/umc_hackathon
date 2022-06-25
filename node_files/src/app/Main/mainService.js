@@ -48,3 +48,28 @@ exports.createRoom = async function (createRoomParams) {
         connection.release();
     }
 };
+/**
+ * API No. 1.4
+ * API Name: 방 설명 수정 API
+ * [Post] /main/patch/:roomIdx
+ */
+exports.editRoomContent = async function(roomIdx, content){
+    const connection = await pool.getConnection(async (conn) => conn);
+    try{
+        const roomStatus = await mainDao.selectRoom(connection, roomIdx);
+        if(roomStatus.length < 1){
+            return errResponse(baseResponse.ROOM_UNEXIST_ROOM);
+        }else if(roomStatus[0].roomStatus == 'INACTIVE'){
+            return errResponse(baseResponse.ROOM_INACTIVE_ROOM);
+        }else if(roomStatus[0].roomStatus == 'DELETED'){
+            return errResponse(baseResponse.ROOM_DELETED_ROOM);
+        }
+        const updateRoomContentResult = await mainDao.updateRoomContent(connection, roomIdx, content);
+        return response(baseResponse.SUCCESS);
+    }catch(err){
+        logger.error(`App - editRoomContent Service error\n: ${err.message}`);
+        return errResponse(baseResponse.DB_ERROR);
+    }finally{
+        connection.release();
+    }
+}
