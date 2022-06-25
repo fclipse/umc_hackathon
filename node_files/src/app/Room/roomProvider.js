@@ -1,7 +1,7 @@
 const { pool } = require("../../../config/database");
 const { logger } = require("../../../config/winston");
 
-const roomDao = require('./roomDao');
+const roomDao = require("./roomDao");
 
 // Provider
 
