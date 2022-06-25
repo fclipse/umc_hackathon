@@ -11,8 +11,8 @@ module.exports = function(app){
     app.get('/main/images/:roomIdx', main.getRoomImage);
 
     // 1.3 방 추가 API
-    app.post('/main/room', main.postRoom);
+    app.post('main/room', main.postRoom);
 
-    // 1.4 게시물 삭제 API
-    
+    // 1.4 방 설명 변경 API
+    app.patch('/main/patch/:roomIdx', main.patchRoomContent);
 };

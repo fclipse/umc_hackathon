@@ -60,6 +60,7 @@ module.exports = {
 
     ROOM_DELETED_ROOM: { "isSuccess": false, "code": 3100, "message": "이미 삭제된 게시물입니다." },
     ROOM_INACTIVE_ROOM: { "isSuccess": false, "code": 3101, "message": "비활성화된 게시물입니다." },
+    ROOM_UNEXIST_ROOM: { "isSuccess": false, "code": 3102, "message": "잘못된 roomIdx입니다." },
     //Connection, Transaction 등의 서버 오류
     DB_ERROR : { "isSuccess": false, "code": 4000, "message": "데이터 베이스 에러"},
     SERVER_ERROR : { "isSuccess": false, "code": 4001, "message": "서버 에러"},
