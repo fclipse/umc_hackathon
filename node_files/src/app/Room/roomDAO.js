@@ -16,7 +16,14 @@ async function selectRoom(connection, roomIdx) {
 
 async function selectRoomDetail(connection, roomIdx) {
     const selectRoomDetailListQuery = `
-
+    SELECT roomName, wifi, pool, bath, tv, kitchen
+    FROM Facility
+        LEFT JOIN (
+            SELECT Room.roomIdx, roomName, roomStatus, Room.hostIdx
+            FROM Room
+            WHERE roomStatus = 'ACTIVE'
+            group by roomIdx) ri on ri.roomIdx = Facility.roomIdx
+    WHERE Facility.roomIdx = 1;
                   `;
     const [roomRows] = await connection.query(selectRoomDetailListQuery, roomIdx);
     return roomRows;
@@ -25,5 +32,4 @@ async function selectRoomDetail(connection, roomIdx) {
 module.exports = {
     selectRoom,
     selectRoomDetail,
-
 }
