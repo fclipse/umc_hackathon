@@ -21,4 +21,10 @@ exports.mainTest = async function(req, res){
  * API Name: 메인 화면 피드 출력 API
  * [GET] /main/:postIdx
  */
-// exports.`
+exports.getFeed = async function(req, res){
+    const roomIdx = req.params.roomIdx;
+    // validation
+    if(!roomIdx){
+        return res.send(errResponse(baseResponse.))
+    }
+}

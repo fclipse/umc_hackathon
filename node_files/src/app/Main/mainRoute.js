@@ -4,8 +4,8 @@ module.exports = function(app){
     // 1.0 테스트 API
     app.get('/main/test', main.mainTest);
 
-    // 2. 게시물 좋아요 조회 API
-    
+    // 1.1 메인 화면 피드 출력 API
+    app.get('/main/:roomIdx', main.getFeed);    
 
     // 2.2 게시물 생성 API
     
