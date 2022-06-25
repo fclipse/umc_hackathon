@@ -30,6 +30,13 @@ async function selectFeed(connection, roomIdx) {
 }
 
 /**
+ * API No. 1.12
+ * API Name: roomIdx 조회 API
+ * [GET] /main/exist/:roomIdx
+ */
+
+
+/**
  * API No. 1.2
  * API Name: 유저 피드 사진 조회 API
  * [GET] /main/images/:roomIdx
@@ -38,9 +45,12 @@ async function selectFeed(connection, roomIdx) {
     const selectRoomImageQuery = `  
         SELECT roomImgUrl
         FROM RoomImgUrl
-        WHERE roomIdx = ?;
+        WHERE roomIdx = ?
+        GROUP BY roomImgUrlIdx;
     `;
+    
     const [RoomImageRows] = await connection.query(selectRoomImageQuery, roomIdx);
+    // console.log(RoomImageRows);
     return RoomImageRows;
 }
 
