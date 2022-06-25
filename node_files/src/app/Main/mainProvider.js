@@ -34,7 +34,8 @@ exports.printFeed = async function (roomIdx) {
  exports.printRoomImage = async function (roomIdx) {
     const connection = await pool.getConnection(async (conn) => conn);
     // 의미적 validation
-    
+    // 해당 인덱스의 방이 존재하는지 validation 필요.
+
     // status != 'ACTIVE'일때
     const roomStatus = await mainDao.selectRoom(connection, roomIdx);
     if(roomStatus[0].roomStatus == 'INACTIVE'){
@@ -45,7 +46,7 @@ exports.printFeed = async function (roomIdx) {
     }
     
     const printRoomImageResult = await mainDao.selectRoomImage(connection, roomIdx);
-    // 결과 없을때
+    // roomImgUrl 없을 때
     if (!printRoomImageResult){
       connection.release();
       return errResponse(baseResponseStatus.ROOM_ROOMIMGURLS_EMPTY);
@@ -53,5 +54,5 @@ exports.printFeed = async function (roomIdx) {
 
     // db 접속 해제
     connection.release();
-    return response(baseResponseStatus.SUCCESS, printRoomImageResult[0]);
+    return response(baseResponseStatus.SUCCESS, printRoomImageResult);
 };
