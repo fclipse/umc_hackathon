@@ -3,8 +3,8 @@
     "version": "2.2.11",
     "width": 4000,
     "height": 4000,
-    "scrollTop": -1192.3364583333387,
-    "scrollLeft": -1347.8062500000053,
+    "scrollTop": -1203.5364583333385,
+    "scrollLeft": -1059.0062500000054,
     "zoomLevel": 0.9,
     "show": {
       "tableComment": true,
@@ -301,10 +301,10 @@
           }
         ],
         "ui": {
-          "active": false,
-          "left": 972.073,
-          "top": 1300.0699,
-          "zIndex": 179,
+          "active": true,
+          "left": 978.2953,
+          "top": 1260.9583,
+          "zIndex": 312,
           "widthName": 60,
           "widthComment": 71.5703125
         },
@@ -856,9 +856,9 @@
         ],
         "ui": {
           "active": false,
-          "left": 1470.294,
-          "top": 1671.3568,
-          "zIndex": 279,
+          "left": 1248.9608,
+          "top": 1682.023,
+          "zIndex": 311,
           "widthName": 108.716796875,
           "widthComment": 60
         },
@@ -1340,8 +1340,8 @@
           "columnIds": [
             "d36275fa-9d65-42fb-87ba-b70d9a9e633f"
           ],
-          "x": 2126.393609375,
-          "y": 1767.3568,
+          "x": 1905.060409375,
+          "y": 1778.023,
           "direction": "right"
         },
         "constraintName": "fk_room_to_roomintroduction",
