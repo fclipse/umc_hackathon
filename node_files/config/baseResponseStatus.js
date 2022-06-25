@@ -43,7 +43,7 @@ module.exports = {
     ROOM_CONTENT_EMPTY : { "isSuccess": false, "code": 2025, "message": "수정할 내용이 없습니다." },
 
     HOST_HOSTIDX_LENGTH : { "isSuccess": false, "code": 2030, "message": "hostIdx는 0보다 큰 값으로 입력해주세요." },
-    HOST_HOSTIDX_EMPTY : { "isSuccess": false, "code": 2031, "message": "hostIdx가 없습니다." },
+    HOST_HOSTIDX_EMPTY : { "isSuccess": false, "code": 2031, "message": "hostIdx값을 입력해주세요." },
     // Response error - 의미적 validation 에러
     SIGNUP_REDUNDANT_EMAIL : { "isSuccess": false, "code": 3001, "message":"중복된 이메일입니다." },
     SIGNUP_REDUNDANT_NICKNAME : { "isSuccess": false, "code": 3002, "message":"중복된 닉네임입니다." },
