@@ -2,6 +2,7 @@ module.exports = {
 
     // 1000: Success
     SUCCESS : { "isSuccess": true, "code": 1000, "message":"성공" },
+    SUCCESS_UPDATE_FACILITY : { "isSuccess": true, "code": 1500, "message":"시설물 여부 수정이 성공적으로 완료되었습니다." },
     // success test response
     // SUCCESS_1 : { "isSuccess": true, "code": 1001, "message":"성공1" },
 
@@ -44,8 +45,9 @@ module.exports = {
     ROOM_CONTENT_EMPTY : { "isSuccess": false, "code": 2025, "message": "수정할 내용이 없습니다." },
 
     // Response Error 2500~
-    HOST_HOSTIDX_EMPTY : { "isSuccess": false, "code": 2021, "message": "hostIdx값을 입력해주세요."},
-    HOST_HOSTIDX_LENGTH : { "isSuccess": false, "code": 2021, "message": "hostIdx값은 0보다 큰 값으로 입력해주세요."},
+    HOST_HOSTIDX_EMPTY : { "isSuccess": false, "code": 2500, "message": "hostIdx값을 입력해주세요."},
+    HOST_HOSTIDX_LENGTH : { "isSuccess": false, "code": 2501, "message": "hostIdx값은 0보다 큰 값으로 입력해주세요."},
+    INCORRECT_FACILITY_STATUS : { "isSuccess": false, "code": 2600, "message": "잘못된 수정 값 : 0 또는 1로 입력해주세요."},
 
     // Response error - 의미적 validation 에러
     SIGNUP_REDUNDANT_EMAIL : { "isSuccess": false, "code": 3001, "message":"중복된 이메일입니다." },

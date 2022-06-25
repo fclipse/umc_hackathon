@@ -8,4 +8,6 @@ module.exports = function(app){
     // 2. 시설정보 가져오기 API
     app.get('/room/detail/:roomIdx', room.getRoomDetail);
 
+    // 3. 시설정보 수정하는 API
+    app.patch('/room/detail/patch/:roomIdx', room.patchRoomDetail);
 };

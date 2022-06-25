@@ -29,7 +29,18 @@ async function selectRoomDetail(connection, roomIdx) {
     return roomRows;
   }
 
+async function updateRoomDetail(connection, editRoomDetailParams){
+  const updateRoomDetailQuery = `
+  UPDATE Facility
+  SET wifi = ?, pool = ?, bath = ?, tv = ?, kitchen = ?
+  WHERE roomidx = ?
+  `
+  const updateRoomDetailRow = await connection.query(updateRoomDetailQuery, editRoomDetailParams);
+  return updateRoomDetailRow;
+}
+
 module.exports = {
     selectRoom,
     selectRoomDetail,
+    updateRoomDetail,
 }
