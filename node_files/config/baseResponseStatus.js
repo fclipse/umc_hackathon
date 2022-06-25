@@ -37,11 +37,11 @@ module.exports = {
     USER_USERIDX_EMPTY : { "isSuccess": false, "code": 2019, "message": "userIdx를 입력해주세요." },
     USER_USERIDX_LENGTH : { "isSuccess": false, "code": 2020, "message": "userIdx는 0보다 큰 값으로 입력해주세요." },
 
-    POST_POSTIDX_EMPTY : { "isSuccess": false, "code": 2021, "message": "postIdx값을 입력해주세요."},
-    POST_POSTIDX_LENGTH : { "isSuccess": false, "code": 2022, "message": "postIdx는 0보다 큰 값으로 입력해주세요." },
-    POST_POSTIMGURLS_EMPTY : { "isSuccess": false, "code": 2023, "message": "이미지를 입력해주세요." },
-    POST_CONTENT_LENGTH : { "isSuccess": false, "code": 2024, "message": "게시물 길이가 너무 깁니다. 450자 미만으로 입력해주세요." },
-    POST_CONTENT_EMPTY : { "isSuccess": false, "code": 2025, "message": "수정할 내용이 없습니다." },
+    ROOM_ROOMIDX_EMPTY : { "isSuccess": false, "code": 2021, "message": "roomIdx값을 입력해주세요."},
+    ROOM_ROOMIDX_LENGTH : { "isSuccess": false, "code": 2022, "message": "roomIdx는 0보다 큰 값으로 입력해주세요." },
+    ROOM_ROOMIMGURLS_EMPTY : { "isSuccess": false, "code": 2023, "message": "이미지를 입력해주세요." },
+    ROOM_CONTENT_LENGTH : { "isSuccess": false, "code": 2024, "message": "게시물 길이가 너무 깁니다. 450자 미만으로 입력해주세요." },
+    ROOM_CONTENT_EMPTY : { "isSuccess": false, "code": 2025, "message": "수정할 내용이 없습니다." },
 
     // Response error - 의미적 validation 에러
     SIGNUP_REDUNDANT_EMAIL : { "isSuccess": false, "code": 3001, "message":"중복된 이메일입니다." },
@@ -53,8 +53,8 @@ module.exports = {
     SIGNIN_WITHDRAWAL_ACCOUNT : { "isSuccess": false, "code": 3006, "message": "탈퇴 된 계정입니다. 고객센터에 문의해주세요." },
     SIGNIN_PASSWORD_LENGTH: { "isSuccess": false, "code": 3007, "message": "비밀번호 길이가 너무 짧습니다." },
 
-    POST_DELETED_POST: { "isSuccess": false, "code": 3100, "message": "이미 삭제된 게시물입니다." },
-    POST_INACTIVE_POST: { "isSuccess": false, "code": 3101, "message": "비활성화된 게시물입니다." },
+    ROOM_DELETED_ROOM: { "isSuccess": false, "code": 3100, "message": "이미 삭제된 게시물입니다." },
+    ROOM_INACTIVE_ROOM: { "isSuccess": false, "code": 3101, "message": "비활성화된 게시물입니다." },
     //Connection, Transaction 등의 서버 오류
     DB_ERROR : { "isSuccess": false, "code": 4000, "message": "데이터 베이스 에러"},
     SERVER_ERROR : { "isSuccess": false, "code": 4001, "message": "서버 에러"},
