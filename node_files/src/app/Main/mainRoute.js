@@ -10,9 +10,9 @@ module.exports = function(app){
     // 1.2 피드 사진 조회 API
     app.get('/main/images/:roomIdx', main.getRoomImage);
 
-    // 2.3 게시물 수정 API
-    
+    // 1.3 방 추가 API
+    app.post('/main/room', main.postRoom);
 
-    // 2.4 게시물 삭제 API
+    // 1.4 게시물 삭제 API
     
 };

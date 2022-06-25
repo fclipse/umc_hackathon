@@ -57,3 +57,22 @@ exports.getRoomImage = async function(req, res){
     const printRoomImageResponse = await mainProvider.printRoomImage(roomIdx);
     return res.send(printRoomImageResponse);
 }
+
+/**
+ * API No. 1.3
+ * API Name: 방 추가 API
+ * [Post] /main/room
+ */
+exports.postRoom = async function(req, res){
+    const {roomName, hostIdx, roomLocation, roomDistance, content, cost, roomDate, roomEndDate, maxGuestNum } = req.body;
+    const createRoomParams = [roomName, hostIdx, roomLocation, roomDistance, content, cost, roomDate, roomEndDate, maxGuestNum];
+    // validation
+    if(!hostIdx){
+        return res.send(errResponse(baseResponse.HOST_HOSTIDX_EMPTY));
+    }
+    if(hostIdx <= 0){
+        return res.send(errResponse(baseResponse.HOST_HOSTIDX_LENGTH));
+    }
+    const createRoomResponse = await mainService.createRoom(createRoomParams);
+    return res.send(createRoomResponse);
+}

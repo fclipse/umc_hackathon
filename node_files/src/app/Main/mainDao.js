@@ -31,9 +31,18 @@ async function selectFeed(connection, roomIdx) {
 
 /**
  * API No. 1.12
- * API Name: roomIdx 조회 API
+ * API Name: hostIdx 조회 API
  * [GET] /main/exist/:roomIdx
  */
+async function selectHostIdx(connection, hostIdx){
+    const selectHostIdxQuery = `
+            SELECT hostIdx, hostStatus
+            FROM Host
+            WHERE hostIdx = ?
+    `;
+    const [selectHostRows] = await connection.query(selectHostIdxQuery, hostIdx);
+    return selectHostRows;
+}
 
 
 /**
@@ -49,13 +58,37 @@ async function selectFeed(connection, roomIdx) {
         GROUP BY roomImgUrlIdx;
     `;
     
-    const [RoomImageRows] = await connection.query(selectRoomImageQuery, roomIdx);
+    const [roomImageRows] = await connection.query(selectRoomImageQuery, roomIdx);
     // console.log(RoomImageRows);
-    return RoomImageRows;
+    return roomImageRows;
 }
-
+/**
+ * API No. 1.3
+ * API Name: 방 추가 API
+ * [Post] /main/room
+ */
+async function insertRoom(connection, createRoomParams){
+    const insertRoomQuery = `
+        INSERT INTO Room(
+            roomName,
+            hostIdx, 
+            roomLocation,
+            roomDistance,
+            content,
+            cost,
+            roomDate,
+            roomEndDate,
+            maxGuestNum)
+        VALUES (?, ?, ?, ?, ?, ?, ?, ?, ?);
+    `;
+    const [insertRoomRows] = await connection.query(insertRoomQuery, createRoomParams);
+    // console.log(insertRoomRows.insertId);
+    return insertRoomRows.insertId;
+}
 module.exports={
     selectFeed,
     selectRoom,
+    selectHostIdx,
     selectRoomImage,
+    insertRoom,
 };
