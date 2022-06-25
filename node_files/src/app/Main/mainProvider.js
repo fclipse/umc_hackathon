@@ -25,6 +25,22 @@ exports.printFeed = async function (roomIdx) {
     return printFeedResult[0];
 };
 
+/**
+ * API No. 1.12
+ * API Name: 호스트 idx 조회 API
+ */
+exports.hostIdxCheck = async function(hostIdx){
+  // console.log('hostIdxChecker');
+  // console.log('hostIdx', hostIdx);
+  if(!hostIdx){ // 의미적 validation
+    console.log('no hostIdx in mainProvider');
+    return;
+  }
+  const connection = await pool.getConnection(async (conn) => conn);
+  const hostCheckResult = await mainDao.selectHostIdx(connection, hostIdx);
+  connection.release();
+  return hostCheckResult;
+}
 
 /**
  * API No. 1.2

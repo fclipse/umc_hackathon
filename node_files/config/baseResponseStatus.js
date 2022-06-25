@@ -33,7 +33,6 @@ module.exports = {
     USER_NICKNAME_EMPTY : { "isSuccess": false, "code": 2017, "message": "변경할 닉네임 값을 입력해주세요" },
 
     USER_STATUS_EMPTY : { "isSuccess": false, "code": 2018, "message": "회원 상태값을 입력해주세요" },
-
     USER_USERIDX_EMPTY : { "isSuccess": false, "code": 2019, "message": "userIdx를 입력해주세요." },
     USER_USERIDX_LENGTH : { "isSuccess": false, "code": 2020, "message": "userIdx는 0보다 큰 값으로 입력해주세요." },
 
@@ -43,6 +42,8 @@ module.exports = {
     ROOM_CONTENT_LENGTH : { "isSuccess": false, "code": 2024, "message": "게시물 길이가 너무 깁니다. 450자 미만으로 입력해주세요." },
     ROOM_CONTENT_EMPTY : { "isSuccess": false, "code": 2025, "message": "수정할 내용이 없습니다." },
 
+    HOST_HOSTIDX_LENGTH : { "isSuccess": false, "code": 2030, "message": "hostIdx는 0보다 큰 값으로 입력해주세요." },
+    HOST_HOSTIDX_EMPTY : { "isSuccess": false, "code": 2031, "message": "hostIdx가 없습니다." },
     // Response error - 의미적 validation 에러
     SIGNUP_REDUNDANT_EMAIL : { "isSuccess": false, "code": 3001, "message":"중복된 이메일입니다." },
     SIGNUP_REDUNDANT_NICKNAME : { "isSuccess": false, "code": 3002, "message":"중복된 닉네임입니다." },
@@ -52,6 +53,10 @@ module.exports = {
     SIGNIN_INACTIVE_ACCOUNT : { "isSuccess": false, "code": 3005, "message": "비활성화 된 계정입니다. 고객센터에 문의해주세요." },
     SIGNIN_WITHDRAWAL_ACCOUNT : { "isSuccess": false, "code": 3006, "message": "탈퇴 된 계정입니다. 고객센터에 문의해주세요." },
     SIGNIN_PASSWORD_LENGTH: { "isSuccess": false, "code": 3007, "message": "비밀번호 길이가 너무 짧습니다." },
+
+    HOST_HOSTACCOUNT_UNEXIST: { "isSuccess": false, "code": 3010, "message": "존재하지 않는 호스트 계정입니다." },
+    HOST_HOSTSTATUS_INACTIVE: { "isSuccess": false, "code": 3011, "message": "비활성화된 호스트 계정입니다." },
+    HOST_HOSTSTATUS_DELETED: { "isSuccess": false, "code": 30012, "message": "삭제된 호스트 계정입니다." },
 
     ROOM_DELETED_ROOM: { "isSuccess": false, "code": 3100, "message": "이미 삭제된 게시물입니다." },
     ROOM_INACTIVE_ROOM: { "isSuccess": false, "code": 3101, "message": "비활성화된 게시물입니다." },
