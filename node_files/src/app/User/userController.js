@@ -208,3 +208,34 @@ exports.check = async function (req, res) {
     console.log(userIdResult);
     return res.send(response(baseResponse.TOKEN_VERIFICATION_SUCCESS));
 };
+
+
+//--------------------------------------------------------------------------------------------------
+
+exports.postUsers = async function(req, res){
+    const {userNickname, email, pwd} = req.body;
+    const signinUsersParams = [userNickname, email, pwd];
+    // validation
+    if(!userNickname){
+        return res.send(errResponse(baseResponse.SIGNUP_NICKNAME_EMPTY));
+    }else if(userNickname.length > 45){
+        return res.send(errResponse(baseResponse.SIGNUP_NICKNAME_LENGTH));
+    }
+    
+    if(!email){
+        return res.send(errResponse(baseResponse.USER_USEREMAIL_EMPTY));
+    }else if(email.length > 45){
+        return res.send(errResponse(baseResponse.SIGNIN_EMAIL_LENGTH));
+    }
+    
+    if(!pwd){
+        return res.send(errResponse(baseResponse.SIGNIN_PASSWORD_EMPTY));
+    }else if(pwd.length > 45){
+        return res.send(errResponse(baseResponse.SIGNIN_PASSWORD_LENGTH));
+    }
+
+    // return
+    const signinUsersResponse = await userService.signinUsers(signinUsersParams);
+    // console.log();
+    return res.send(response(baseResponse.SUCCESS, signinUsersResponse));
+}

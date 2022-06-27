@@ -138,3 +138,15 @@ exports.patchUserStatus = async function (idx) {
         return errResponse(baseResponse.DB_ERROR);
     }
 }
+
+// ---------------------------------------------------------------------------------
+exports.signinUsers = async function(signinUsersParams){
+    const connection = await pool.getConnection(async (conn) => conn);
+    try{
+
+    }catch(err){
+        
+    }finally{
+        connection.release();
+    }
+}
